@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createContext, useEffect, useState } from 'react';
 import React from 'react';
+import "./Home.css";
 import Button from 'react-bootstrap/Button';
 import Carousel from 'react-bootstrap/Carousel';
 import Container from 'react-bootstrap/Container';
@@ -77,7 +78,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="Apps" style={{ backgroundColor: 'grey' }}>
+    <div className="Apps" style={{ backgroundColor: 'white' }}>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container fluid>
           <Navbar.Brand>ASEP</Navbar.Brand>
@@ -85,16 +86,6 @@ function Home() {
           <Navbar.Collapse id="navbarScroll">
             <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
               <Nav.Link onClick={handleHomePage}>Home</Nav.Link>
-              <Nav.Link href="#action2">Link</Nav.Link>
-              <NavDropdown title="Link" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
-              </NavDropdown>
-              <Nav.Link href="#" disabled>
-                Link
-              </Nav.Link>
             </Nav>
             <Form className="d-flex">
               <Button>
@@ -125,6 +116,11 @@ function Home() {
             ))}
           </Carousel>
 
+          <br/>
+          <div className='producthead'>
+            Our Products
+          </div>
+
           <div className="container mt-4">
             <div className="row">
               {dataFromAPI.map((item, index) => (
@@ -142,7 +138,7 @@ function Home() {
                       <MDBCardText style={{ color: 'red', fontWeight: 'bolder' }}>
                         ${item.price}
                       </MDBCardText>
-                      <Button className="flex-button" onClick={() => handleShowModal(item)}>
+                      <Button variant='secondary' className="flex-button" onClick={() => handleShowModal(item)}>
                         Checkout
                       </Button>
                     </MDBCardBody>
@@ -157,9 +153,16 @@ function Home() {
           <Modal.Title>Checkout Information</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Item: {selectedItem && selectedItem.title}</p>
-          <p>Price: ${selectedItem && selectedItem.price}</p>
-        </Modal.Body>
+  {selectedItem && selectedItem.images && selectedItem.images.length > 0 ? (
+    <img src={selectedItem.images[0]} alt="Selected Item" style={{ width: '50%', height: 'auto' }} />
+  ) : (
+    <p>No image available</p>
+  )}
+  <p>Item: {selectedItem && selectedItem.title}</p>
+  <p>Price: ${selectedItem && selectedItem.price}</p>
+</Modal.Body>
+
+
         <Modal.Footer>
           <Button variant="secondary" onClick={() => handleAddToCart(selectedItem)}>
             Add to Cart

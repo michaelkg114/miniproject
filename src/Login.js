@@ -43,20 +43,11 @@ const Login = ({ handleLogin }) => {
             className="bg-white my-5 mx-auto"
             style={{ borderRadius: "1rem", maxWidth: "500px" }}
           >
-            {/* <MDBCardBody className="p-5 w-100 d-flex flex-column">
-              <h2 className="fw-bold mb-2 text-center">Login</h2>
-              <p className="text-white-50 mb-3">
-                Please enter your login and password!
-              </p> */}
 
-              {/* <MDBInput wrapperClass='mb-4 w-100' label='Username' id='formControlLg' type='email' size="lg"/>
-              
-            <MDBInput wrapperClass='mb-4 w-100' label='Password' id='formControlLg' type='password' size="lg"/>
-
-            <MDBCheckbox name='flexCheck' id='flexCheckDefault' className='mb-4' label='Remember password' /> */}
               <div>
                 <center>
                   <h2>Login</h2>
+                  <br/>
                   <form onSubmit={handleSubmit}>
                     <input
                       type="text"
@@ -64,8 +55,11 @@ const Login = ({ handleLogin }) => {
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}
                     />
+                    {/* <br/> */}
                     <p>
+                      <br/>
                       <input
+                      className="#"
                         type="password"
                         placeholder="Password"
                         value={password}
@@ -73,7 +67,7 @@ const Login = ({ handleLogin }) => {
                       />
                     </p>
                     <p>
-                      <button type="submit">Login</button>
+                      <button type="submit">Login Ngab</button>
                     </p>
                   </form>
                 </center>
@@ -84,21 +78,21 @@ const Login = ({ handleLogin }) => {
               <hr className="my-4" />
 
               <MDBBtn
-                className="mb-2 w-100"
+                className="mb-2 w-100 flex-button"
                 size="lg"
-                style={{ backgroundColor: "#dd4b39" }}
+                style={{ backgroundColor: "#dd4b39", width:'0px' }}
               >
                 <MDBIcon fab icon="google" className="mx-2" />
-                Sign in with google
+                Sign in with Google
               </MDBBtn>
 
               <MDBBtn
-                className="mb-4 w-100"
+                className="mb-4 w-100 flex-button"
                 size="lg"
                 style={{ backgroundColor: "#3b5998" }}
               >
                 <MDBIcon fab icon="facebook-f" className="mx-2" />
-                Sign in with facebook
+                Sign in with Facebook
               </MDBBtn>
             {/* </MDBCardBody> */}
           </MDBCard>
@@ -106,25 +100,6 @@ const Login = ({ handleLogin }) => {
       </MDBRow>
     </MDBContainer>
     </div>
-    // <div><center>
-    //   <h2>Login</h2>
-    //   <form onSubmit={handleSubmit}>
-    //     <input
-    //       type="text"
-    //       placeholder="Username"
-    //       value={username}
-    //       onChange={(e) => setUsername(e.target.value)}
-    //     />
-    //     <p><input
-    //       type="password"
-    //       placeholder="Password"
-    //       value={password}
-    //       onChange={(e) => setPassword(e.target.value)}
-    //     /></p>
-    //     <p><button type="submit">Login</button></p>
-    //   </form>
-    //   </center>
-    // </div>
   );
 };
 
